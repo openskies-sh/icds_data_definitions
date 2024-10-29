@@ -2,7 +2,8 @@ from pydantic import BaseModel
 from enum import Enum, auto
 
 # Version: 0.0.1
-DATA_DEFINITIONS_VERSION = 0.0.1
+DATA_DEFINITIONS_VERSION = "0.0.1"
+
 class AvailabilityEnum(str, Enum):
     unknown = auto()
     healthy = auto()
