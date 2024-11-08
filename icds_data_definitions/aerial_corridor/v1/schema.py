@@ -1,13 +1,13 @@
 from pydantic import BaseModel
-from enum import Enum, auto
+from enum import Enum
 
 # Version: 0.0.1
 DATA_DEFINITIONS_VERSION = "0.0.1"
 
 class AvailabilityEnum(str, Enum):
-    unknown = auto()
-    healthy = auto()
-    unhealthy = auto()
+    unknown = 'unknown'
+    healthy = 'healthy'
+    unhealthy = 'unhealthy'
 
 
 class VersionAvailabilityRead(BaseModel):
