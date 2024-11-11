@@ -20,7 +20,7 @@ class VersionAvailabilityRead(BaseModel):
 
 class VersionAvailabilityWrite(BaseModel):
     "A class to hold version and availability information to write to the ICDS database, it is normally populated at startup time"
-    
+    id: str
     version: str
     availability: AvailabilityEnum
 
