@@ -1,4 +1,4 @@
-from enum import Enum
+from pydantic import BaseModel
 
 class AerialCorridorRead(BaseModel):
     "A class to read data from the Aerial Corridor table "
