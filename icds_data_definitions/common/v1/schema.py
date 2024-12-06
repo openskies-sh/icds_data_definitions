@@ -40,4 +40,4 @@ class DiscoveryService(BaseModel):
 
 class DiscoveryServiceListRead(BaseModel):
     "A class to hold a list of URLs and the type of service "
-    available_services: list[DiscoveryService]
+    available_services: List[DiscoveryService]
