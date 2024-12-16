@@ -1,5 +1,6 @@
 from pydantic import BaseModel
-from enum import Enum, List
+from enum import Enum, 
+from typing import List
 
 # Version: 0.0.1
 DATA_DEFINITIONS_VERSION = "0.0.1"
