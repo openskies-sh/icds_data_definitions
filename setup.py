@@ -11,7 +11,7 @@ with open("requirements.txt") as f:
 
 setup_args = dict(
     name='icds_data_definitions',
-    version='0.0.16',
+    version='0.0.17',
     description='Data definitions for IC Discovery Services as Pydantic objects',
     long_description_content_type="text/markdown",
     long_description=README + "\n\n" + HISTORY,
