@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from enum import Enum, 
+from enum import Enum
 from typing import List
 
 # Version: 0.0.1

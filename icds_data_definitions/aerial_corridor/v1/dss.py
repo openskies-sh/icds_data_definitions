@@ -193,7 +193,7 @@ class RecorderRole(Enum):
 class ExchangeRecord(BaseModel):
     url: str = Field(..., description='Full URL of request.')
     method: str = Field(
-        ..., description='HTTP verb used by requestor (e.g., "PUT," "GET," etc.).'
+        ..., description='HTTP verb used by requester (e.g., "PUT," "GET," etc.).'
     )
     headers: Optional[List[str]] = Field(
         [],
