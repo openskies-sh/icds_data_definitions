@@ -8,7 +8,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 from uuid import UUID
-from dss import EntityID
+from .dss import EntityID
 from pydantic import BaseModel, Field, confloat, constr
 
 
