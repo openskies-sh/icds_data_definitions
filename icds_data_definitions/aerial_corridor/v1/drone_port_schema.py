@@ -8,7 +8,7 @@ from datetime import datetime
 from enum import Enum
 from typing import Optional
 from uuid import UUID
-from .dss import EntityID
+
 from pydantic import BaseModel, Field, confloat, constr
 
 
@@ -36,47 +36,25 @@ class DronePortOperationalStatus(str, Enum):
 
 
 class Attributes(BaseModel):
-    drone_port_name: constr(min_length=1, max_length=24) = Field(
-        ..., description="ドローンポート名", example="ドローンポート１"
-    )
-    address: Optional[constr(min_length=1, max_length=50)] = Field(
-        None, description="設置場所住所", example="神奈川県横浜市XXX区XXX町"
-    )
-    manufacturer: Optional[constr(min_length=1, max_length=24)] = Field(
-        None, description="製造メーカー", example="ブルーイノベーション"
-    )
-    serial_number: Optional[constr(min_length=1, max_length=20)] = Field(
-        None, description="製造番号", example="XXX-XXXXXX等"
-    )
-    port_type: DronePortType = Field(
-        ..., description="ポート形状。1:機械式、2:簡易、0:不明"
-    )
-    latitude: confloat(ge=-90.0, le=90.0) = Field(
-        ..., description="ドローンポート中心緯度", example=35.12345678
-    )
-    longitude: confloat(ge=-180.0, le=180.0) = Field(
-        ..., description="ドローンポート中心経度", example=140.12345678
-    )
-    altitude: confloat(ge=0.0, le=100.0) = Field(
-        ..., description="ドローンポート着陸面の高さ(対地高度)", example=12
-    )
+    drone_port_name: constr(min_length=1, max_length=24) = Field(..., description="ドローンポート名", example="ドローンポート１")
+    address: Optional[constr(min_length=1, max_length=50)] = Field(None, description="設置場所住所", example="神奈川県横浜市XXX区XXX町")
+    manufacturer: Optional[constr(min_length=1, max_length=24)] = Field(None, description="製造メーカー", example="ブルーイノベーション")
+    serial_number: Optional[constr(min_length=1, max_length=20)] = Field(None, description="製造番号", example="XXX-XXXXXX等")
+    port_type: DronePortType = Field(..., description="ポート形状。1:機械式、2:簡易、0:不明")
+    latitude: confloat(ge=-90.0, le=90.0) = Field(..., description="ドローンポート中心緯度", example=35.12345678)
+    longitude: confloat(ge=-180.0, le=180.0) = Field(..., description="ドローンポート中心経度", example=140.12345678)
+    altitude: confloat(ge=0.0, le=100.0) = Field(..., description="ドローンポート着陸面の高さ(対地高度)", example=12)
     supports_drone_type: constr(max_length=24) = Field(
         ...,
         description="対応機体。着陸可能な機体の種類等を設定",
         example="マルチコプター",
     )
-    usage_type: DronePortUsageType = Field(
-        ..., description="使用用途。1:駐機場、2:緊急着陸地点"
-    )
-    operational_status: DronePortOperationalStatus = Field(
-        ..., description="動作状況。使用可否、準備中、着陸済み等", example="使用可能"
-    )
+    usage_type: DronePortUsageType = Field(..., description="使用用途。1:駐機場、2:緊急着陸地点")
+    operational_status: DronePortOperationalStatus = Field(..., description="動作状況。使用可否、準備中、着陸済み等", example="使用可能")
 
 
 class DronePort(BaseModel):
-    data_model_type: DataModelType = Field(
-        ..., description="データモデルタイプ", example="standard"
-    )
+    data_model_type: DataModelType = Field(..., description="データモデルタイプ", example="standard")
     attributes: Attributes = Field(..., description="ドローンポート要素")
 
 
@@ -87,42 +65,29 @@ class PortUsageType(Enum):
 
 
 class DronePortReservationAttributes(BaseModel):
-    
-    aircraft_id: UUID = Field(
-        ..., description="機体ID", example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx"
-    )
+    aircraft_id: UUID = Field(..., description="機体ID", example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx")
     route_id: Optional[UUID] = Field(
         None,
         description="紐づける航路ID",
         example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx",
     )
-    usage_type: Optional[PortUsageType] = Field(
-        None, description="利用形態。1:離陸ポート、2:着陸ポート、3:その他", example=1
-    )
-    reservation_time_from: datetime = Field(
-        ..., description="予約開始日時。ISO8601形式", example="20120915T155300Z"
-    )
-    reservation_time_to: datetime = Field(
-        ..., description="予約終了日時。ISO8601形式", example="20120915T155300Z"
-    )
+    usage_type: Optional[PortUsageType] = Field(None, description="利用形態。1:離陸ポート、2:着陸ポート、3:その他", example=1)
+    reservation_time_from: datetime = Field(..., description="予約開始日時。ISO8601形式", example="20120915T155300Z")
+    reservation_time_to: datetime = Field(..., description="予約終了日時。ISO8601形式", example="20120915T155300Z")
 
 
 class DronePortReservation(BaseModel):
-    data_model_type: DataModelType = Field(
-        ..., description="データモデルタイプ", example="standard"
-    )
-    attributes: DronePortReservationAttributes = Field(
-        ..., description="ドローンポート予約情報"
-    )
+    data_model_type: DataModelType = Field(..., description="データモデルタイプ", example="standard")
+    attributes: DronePortReservationAttributes = Field(..., description="ドローンポート予約情報")
 
 
 class PutDronePortReferenceParameters(BaseModel):
-    id: EntityID
+    id: UUID
     drone_port_details: DronePort
 
 
 class CreateOrUpdateDronePortReference(BaseModel):
-    id: EntityID
+    id: UUID
     drone_port_details: DronePort
 
 
