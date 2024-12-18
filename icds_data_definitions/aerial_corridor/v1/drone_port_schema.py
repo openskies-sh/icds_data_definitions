@@ -17,13 +17,13 @@ class DataModelType(str, Enum):
     extended = "extended"
 
 
-class DronePortType(str, Enum):
+class DronePortType(Enum):
     system_managed = 1
     vis_managed = 2
     other_operator_managed = 3
 
 
-class DronePortUsageType(str, Enum):
+class DronePortUsageType(Enum):
     parking_area = 1
     emergency_landing_site = 2
 
@@ -36,11 +36,6 @@ class DronePortOperationalStatus(str, Enum):
 
 
 class Attributes(BaseModel):
-    drone_port_id: UUID = Field(
-        ...,
-        description="ドローンポートID",
-        example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx",
-    )
     drone_port_name: constr(min_length=1, max_length=24) = Field(
         ..., description="ドローンポート名", example="ドローンポート１"
     )
@@ -92,11 +87,7 @@ class PortUsageType(Enum):
 
 
 class DronePortReservationAttributes(BaseModel):
-    drone_port_id: UUID = Field(
-        ...,
-        description="ドローンポートID",
-        example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx",
-    )
+    
     aircraft_id: UUID = Field(
         ..., description="機体ID", example="xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx"
     )
