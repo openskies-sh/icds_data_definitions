@@ -67,48 +67,46 @@ class AirwayDefinition(BaseModel):
     airway: Airway
 
 
-class AirwayBooking(BaseModel):
-    """
-    AirwayBooking represents a booking for an airway corridor.
-    Attributes:
-        id (UUID): Unique identifier for the booking.
-        airway_id (UUID): Unique identifier for the airway.
-        reference (str): Reference code for the booking.
-        status (str): Current status of the booking.
-        start_datetime (str): Start date and time of the booking.
-        end_datetime (str): End date and time of the booking.
-        booking_expiry_date (str): Expiry date of the booking.
-        created_at (str): Timestamp when the booking was created.
-        updated_at (str): Timestamp when the booking was last updated.
-    """
+# class AerialCorridorRead(BaseModel):
+#     "A class to read data from the Aerial Corridor table"
 
-    id: UUID
-    airway_id: UUID
-    reference: str
-    status: str
-    start_datetime: str
-    end_datetime: str
-    booking_expiry_datetime: str
-    created_at: str
-    updated_at: str
+#     url: str
+#     min_cell_level: int
+#     max_cell_level: int
+#     start_datetime: str
+#     end_datetime: str
+#     created_at: str
+#     updated_at: str
 
 
-# class GetAirwaysBookingReferenceResponse(BaseModel):
-#     """Get Airways Booking Reference"""
+# class AerialCorridorWrite(BaseModel):
+#     "A class to write data to the Aerial Corridor table"
+
+#     id: str
+#     url: str
+#     min_cell_level: int
+#     max_cell_level: int
+#     start_datetime: str
+#     end_datetime: str
+
+
+
+# class GetAirwayDefinition(BaseModel):
+#     """Get Airways Definition"""
 
 #     raise NotImplementedError
 
 
-# class QueryAirwaysBookingReferenceParameters(BaseModel):
-#     """Query all Bookings for an area of interest"""
+# class QueryAirwayDefinitionParameters(BaseModel):
+#     """Query all Airway Definitions for an area of interest"""
 
 #     raise NotImplementedError
 
 
-# class CreateOrUpdateAirwaysBookingReference(BaseModel):
-#     """Create or update airways bookings"""
+# class CreateOrUpdateAirways(BaseModel):
+#     """Create or update Airway Definition"""
 #     raise NotImplementedError
 
-# class PutAirwaysBookingReferenceParameters(BaseModel):
-#     """Put airways booking reference"""
+# class PutAirwaysDefinitionParameters(BaseModel):
+#     """Put airways definition parameters"""
 #     raise NotImplementedError
