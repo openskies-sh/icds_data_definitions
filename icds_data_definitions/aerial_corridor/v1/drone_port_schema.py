@@ -80,6 +80,11 @@ class DronePortReservation(BaseModel):
     data_model_type: DataModelType = Field(..., description="データモデルタイプ", example="standard")
     attributes: DronePortReservationAttributes = Field(..., description="ドローンポート予約情報")
 
+class QueryDronePortReferenceParameters(BaseModel):
+    pass
+
+class QueryDronePortsResponse(BaseModel):
+    drone_port_details: DronePort
 
 class PutDronePortReferenceParameters(BaseModel):
     id: UUID
