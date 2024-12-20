@@ -91,22 +91,24 @@ class AirwayDefinition(BaseModel):
 
 
 
-# class GetAirwayDefinition(BaseModel):
-#     """Get Airways Definition"""
+class GetSingleAirwayDefinitionResponse(BaseModel):
+    """Get Airway Response"""
 
-#     raise NotImplementedError
+    raise NotImplementedError
+
+class QueryAirwayDefinitionParameters(BaseModel):
+    """Query all Airway Definitions for an area of interest"""
+
+    raise NotImplementedError()
 
 
-# class QueryAirwayDefinitionParameters(BaseModel):
-#     """Query all Airway Definitions for an area of interest"""
+class CreateOrUpdateAirwayDefinition(BaseModel):
+    """Create or update Airway Definition"""
+    raise NotImplementedError
 
-#     raise NotImplementedError
+class PutAirwayDefinitionParameters(BaseModel):
+    """Put airways definition parameters"""
+    raise NotImplementedError
 
-
-# class CreateOrUpdateAirways(BaseModel):
-#     """Create or update Airway Definition"""
-#     raise NotImplementedError
-
-# class PutAirwaysDefinitionParameters(BaseModel):
-#     """Put airways definition parameters"""
-#     raise NotImplementedError
+class DeleteAirwayDefinitionResponse(BaseModel):
+    raise NotImplementedError
